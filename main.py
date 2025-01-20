@@ -1,3 +1,4 @@
+# -*- coding: gbk -*-
 import tkinter as tk
 from Frames.AboutFrame import AboutFrame
 from Frames.EditFrame import EditFrame
@@ -11,10 +12,10 @@ class MainPage:
     def __init__(self,master):
         self.root = master
         self.root.geometry('1000x700')
-        self.root.title('å¤„ç†é¡µé¢')
+        self.root.title('´¦ÀíÒ³Ãæ')
         self.create_menu()
 
-        # å…³äºé¡µé¢
+        # ¹ØÓÚÒ³Ãæ
         self.create_frame = tk.Frame(self.root)
         self.search_frame = tk.Frame(self.root)
         self.edit_frame = tk.Frame(self.root)
@@ -23,23 +24,23 @@ class MainPage:
         self.about_frame = tk.Frame(self.root)
 
     def create_menu(self):
-        """åˆ›å»ºèœå•"""
+        """´´½¨²Ëµ¥"""
 
-        #èœå•
+        #²Ëµ¥
         menubar = tk.Menu(self.root)
-        menubar.add_command(label='æ–°å»º',command=self.create_invoice)
-        menubar.add_command(label='æŸ¥è¯¢',command=self.search_invoice)
-        menubar.add_command(label='ä¿®æ”¹',command=self.edit_invoice)
-        menubar.add_command(label='åˆ é™¤',command=self.delete_invoice)
-        menubar.add_command(label='å½•å…¥',command=self.register_item)
-        menubar.add_command(label='å…³äº',command=self.show_about)
+        menubar.add_command(label='ĞÂ½¨',command=self.create_invoice)
+        menubar.add_command(label='²éÑ¯',command=self.search_invoice)
+        menubar.add_command(label='ĞŞ¸Ä',command=self.edit_invoice)
+        menubar.add_command(label='É¾³ı',command=self.delete_invoice)
+        menubar.add_command(label='Â¼Èë',command=self.register_item)
+        menubar.add_command(label='¹ØÓÚ',command=self.show_about)
 
 
         self.root.config(menu=menubar)
 
     def destroy_last_page(self):
-        """é”€æ¯ä¸Šä¸€ä¸ªé¡µé¢"""
-        # é”€æ¯æ¯ä¸ªé¡µé¢ï¼Œå¦‚æœé¡µé¢å·²ç»åˆ›å»ºå¹¶æ˜¾ç¤ºåœ¨ç•Œé¢ä¸Š
+        """Ïú»ÙÉÏÒ»¸öÒ³Ãæ"""
+        # Ïú»ÙÃ¿¸öÒ³Ãæ£¬Èç¹ûÒ³ÃæÒÑ¾­´´½¨²¢ÏÔÊ¾ÔÚ½çÃæÉÏ
         if hasattr(self, 'create_frame') and self.create_frame.winfo_ismapped():
             self.create_frame.destroy()
         if hasattr(self, 'search_frame') and self.search_frame.winfo_ismapped():
@@ -64,7 +65,7 @@ class MainPage:
         self.search_frame = SearchFrame(self.root)
 
     def edit_invoice(self):
-        """ä¿®æ”¹é¡µé¢çš„ä¿¡æ¯"""
+        """ĞŞ¸ÄÒ³ÃæµÄĞÅÏ¢"""
         self.destroy_last_page()
         self.edit_frame = EditFrame(self.root)
 
@@ -77,7 +78,7 @@ class MainPage:
         self.register_frame = RegisterFrame(self.root)
 
     def show_about(self):
-        """å…³äºé¡µé¢çš„ä¿¡æ¯"""
+        """¹ØÓÚÒ³ÃæµÄĞÅÏ¢"""
         self.destroy_last_page()
         self.about_frame = AboutFrame(self.root)
 

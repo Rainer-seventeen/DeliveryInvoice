@@ -1,10 +1,11 @@
+# -*- coding: gbk -*-
 import tkinter as tk
 
 class AboutFrame(tk.Frame):
     def __init__(self, root):
         super().__init__(master=root)
 
-        # æœ¬èº«å°±æ˜¯ä¸€ä¸ªframeå¯¹è±¡ï¼Œä¸éœ€è¦åˆ›å»º
-        tk.Label(self, text="å…³äºæœ¬ä½œï¼šä½¿ç”¨tkinteråˆ¶ä½œ").pack()
-        tk.Label(self, text="å…³äºä½œè€…ï¼šRainer17").pack()
+        # ±¾Éí¾ÍÊÇÒ»¸öframe¶ÔÏó£¬²»ĞèÒª´´½¨
+        tk.Label(self, text="¹ØÓÚ±¾×÷£ºÊ¹ÓÃtkinterÖÆ×÷").pack()
+        tk.Label(self, text="¹ØÓÚ×÷Õß£ºRainer17").pack()
         self.pack()

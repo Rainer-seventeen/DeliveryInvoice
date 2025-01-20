@@ -1,9 +1,10 @@
+# -*- coding: gbk -*-
 import tkinter as tk
 
 class DeleteFrame(tk.Frame):
     def __init__(self, root):
         super().__init__(master=root)
 
-        # æœ¬èº«å°±æ˜¯ä¸€ä¸ªframeå¯¹è±¡ï¼Œä¸éœ€è¦åˆ›å»º
-        tk.Label(self, text="åˆ é™¤é€è´§å•").pack()
+        # ±¾Éí¾ÍÊÇÒ»¸öframe¶ÔÏó£¬²»ĞèÒª´´½¨
+        tk.Label(self, text="É¾³ıËÍ»õµ¥").pack()
         self.pack()

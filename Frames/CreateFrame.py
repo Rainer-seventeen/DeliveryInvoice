@@ -1,3 +1,4 @@
+# -*- coding: gbk -*-
 import tkinter as tk
 from venv import create
 
@@ -7,118 +8,118 @@ class CreateFrame(tk.Frame):
     def __init__(self, root):
         super().__init__(master=root)
 
-        # æœ¬èº«å°±æ˜¯ä¸€ä¸ªframeå¯¹è±¡ï¼Œä¸éœ€è¦åˆ›å»º
-        # tk.Label(self, text="åˆ›å»ºé€è´§å•").pack()
+        # ±¾Éí¾ÍÊÇÒ»¸öframe¶ÔÏó£¬²»ĞèÒª´´½¨
+        # tk.Label(self, text="´´½¨ËÍ»õµ¥").pack()
         # self.pack()
 
 
     def create_ui(self):
-        # ------ Company è¾“å…¥ç»„ä»¶ ------
+        # ------ Company ÊäÈë×é¼ş ------
         dropdown_var_company = tk.StringVar()
         entry_company = tk.Entry(self.master, width=60)
 
-        # # ä¸‹æ‹‰èœå•
-        # dropdown_menu_company = tk.OptionMenu(self.master, dropdown_var_company, "æš‚æ— å†å²è®°å½•")
-        # dropdown_menu_company.grid(row=0, column=3, columnspan=2, pady=5, sticky="w")  # é å·¦å¯¹é½
+        # # ÏÂÀ­²Ëµ¥
+        # dropdown_menu_company = tk.OptionMenu(self.master, dropdown_var_company, "ÔİÎŞÀúÊ·¼ÇÂ¼")
+        # dropdown_menu_company.grid(row=0, column=3, columnspan=2, pady=5, sticky="w")  # ¿¿×ó¶ÔÆë
 
-        # # ç»‘å®šå…¬å¸ä¸‹æ‹‰é€»è¾‘
+        # # °ó¶¨¹«Ë¾ÏÂÀ­Âß¼­
         # bind_dropdown_action(dropdown_var_company, entry_company)
 
-        # æ ‡ç­¾
-        name_label_company = tk.Label(self.master, text="å…¬å¸åç§°:")
-        name_label_company.grid(row=0, column=0, pady=5, sticky="we")  # é å·¦å¯¹é½
+        # ±êÇ©
+        name_label_company = tk.Label(self.master, text="¹«Ë¾Ãû³Æ:")
+        name_label_company.grid(row=0, column=0, pady=5, sticky="we")  # ¿¿×ó¶ÔÆë
 
-        # è¾“å…¥æ¡†
-        entry_company.grid(row=0, column=1, columnspan=2, pady=5, sticky="w")  # é å·¦æ‰©å±•
+        # ÊäÈë¿ò
+        entry_company.grid(row=0, column=1, columnspan=2, pady=5, sticky="w")  # ¿¿×óÀ©Õ¹
 
-        # æäº¤æŒ‰é’®ï¼Œæ”¾åœ¨è¾“å…¥æ¡†å³ä¾§
-        button_company = tk.Button(self.master, text="æäº¤å…¬å¸")
-        button_company.grid(row=0, column=5, padx=10, pady=5, sticky="we")  # é è¾“å…¥æ¡†å³è¾¹
+        # Ìá½»°´Å¥£¬·ÅÔÚÊäÈë¿òÓÒ²à
+        button_company = tk.Button(self.master, text="Ìá½»¹«Ë¾")
+        button_company.grid(row=0, column=5, padx=10, pady=5, sticky="we")  # ¿¿ÊäÈë¿òÓÒ±ß
 
 
         #############################################################################
-        # ------ Address è¾“å…¥ç»„ä»¶ ------
+        # ------ Address ÊäÈë×é¼ş ------
         dropdown_var_address = tk.StringVar()
         entry_address = tk.Entry(self.master, width=60)
 
-        # # ä¸‹æ‹‰èœå•
-        # dropdown_menu_address = tk.OptionMenu(self.master, dropdown_var_address, "æš‚æ— å†å²è®°å½•")
-        # dropdown_menu_address.grid(row=2, column=3, columnspan=2, pady=5, sticky="w")  # é å·¦å¯¹é½
+        # # ÏÂÀ­²Ëµ¥
+        # dropdown_menu_address = tk.OptionMenu(self.master, dropdown_var_address, "ÔİÎŞÀúÊ·¼ÇÂ¼")
+        # dropdown_menu_address.grid(row=2, column=3, columnspan=2, pady=5, sticky="w")  # ¿¿×ó¶ÔÆë
         #
-        # # ç»‘å®šåœ°å€ä¸‹æ‹‰é€»è¾‘
+        # # °ó¶¨µØÖ·ÏÂÀ­Âß¼­
         # bind_dropdown_action(dropdown_var_address, entry_address)
 
-        # æ ‡ç­¾
-        name_label_address = tk.Label(self.master, text="åœ°å€åç§°:")
-        name_label_address.grid(row=2, column=0, pady=5, sticky="we")  # é å·¦å¯¹é½
+        # ±êÇ©
+        name_label_address = tk.Label(self.master, text="µØÖ·Ãû³Æ:")
+        name_label_address.grid(row=2, column=0, pady=5, sticky="we")  # ¿¿×ó¶ÔÆë
 
-        # è¾“å…¥æ¡†
-        entry_address.grid(row=2, column=1, columnspan=2, pady=5, sticky="w")  # é å·¦æ‰©å±•
+        # ÊäÈë¿ò
+        entry_address.grid(row=2, column=1, columnspan=2, pady=5, sticky="w")  # ¿¿×óÀ©Õ¹
 
-        # æäº¤æŒ‰é’®ï¼Œä¸è¾“å…¥æ¡†åŒåˆ—åŒè¡Œå³ä¾§
-        button_address = tk.Button(self.master,text="æäº¤åœ°å€",)
-        button_address.grid(row=2, column=5, padx=10, pady=5, sticky="we")  # é è¾“å…¥æ¡†å³è¾¹
+        # Ìá½»°´Å¥£¬ÓëÊäÈë¿òÍ¬ÁĞÍ¬ĞĞÓÒ²à
+        button_address = tk.Button(self.master,text="Ìá½»µØÖ·",)
+        button_address.grid(row=2, column=5, padx=10, pady=5, sticky="we")  # ¿¿ÊäÈë¿òÓÒ±ß
 
-        # # ç¡®è®¤æŒ‰é’®ï¼Œä¸åœ°å€æäº¤æŒ‰é’®åŒè¡Œå³ä¾§
+        # # È·ÈÏ°´Å¥£¬ÓëµØÖ·Ìá½»°´Å¥Í¬ĞĞÓÒ²à
         # confirm_address = tk.Button(
         #     root,
-        #     text="ç¡®è®¤åœ°å€",
+        #     text="È·ÈÏµØÖ·",
         #     command=lambda: print_to_console(entry_address.get())
         # )
-        # confirm_address.grid(row=3, column=5, padx=10, pady=5, sticky="we")  # é æäº¤æŒ‰é’®å³è¾¹
+        # confirm_address.grid(row=3, column=5, padx=10, pady=5, sticky="we")  # ¿¿Ìá½»°´Å¥ÓÒ±ß
         #############################################################################
-        # ç”µè¯ä¸è”ç³»äººè¾“å…¥æ¡†
-        name_label_phone = tk.Label(self.master, text="å®¢æˆ·ç”µè¯:")
-        name_label_phone.grid(row=3, column=0, pady=5, sticky="we")  # é å·¦å¯¹é½
+        # µç»°ÓëÁªÏµÈËÊäÈë¿ò
+        name_label_phone = tk.Label(self.master, text="¿Í»§µç»°:")
+        name_label_phone.grid(row=3, column=0, pady=5, sticky="we")  # ¿¿×ó¶ÔÆë
         entry_phone = tk.Entry(self.master, width=60)
-        entry_phone.grid(row=3, column=1, columnspan=2, pady=5, sticky="w")  # é å·¦æ‰©å±•
+        entry_phone.grid(row=3, column=1, columnspan=2, pady=5, sticky="w")  # ¿¿×óÀ©Õ¹
 
-        name_label_connector = tk.Label(self.master, text="è”ç³»äºº:")
-        name_label_connector.grid(row=4, column=0, pady=5, sticky="we")  # é å·¦å¯¹é½
+        name_label_connector = tk.Label(self.master, text="ÁªÏµÈË:")
+        name_label_connector.grid(row=4, column=0, pady=5, sticky="we")  # ¿¿×ó¶ÔÆë
         entry_connector = tk.Entry(self.master, width=60)
-        entry_connector.grid(row=4, column=1, columnspan=2, pady=5, sticky="w")  # é å·¦æ‰©å±•
+        entry_connector.grid(row=4, column=1, columnspan=2, pady=5, sticky="w")  # ¿¿×óÀ©Õ¹
 
         #############################################################################
-        # ------ æ‰¹é‡6x8è¾“å…¥æ¡†å¸ƒå±€ ------
+        # ------ ÅúÁ¿6x8ÊäÈë¿ò²¼¾Ö ------
         input_vars = []
-        labels = ("äº§å“åç§°", "è§„æ ¼å‹å·", "å•ä½", "æ•°é‡", "å•ä»·", "å¤‡æ³¨")
+        labels = ("²úÆ·Ãû³Æ", "¹æ¸ñĞÍºÅ", "µ¥Î»", "ÊıÁ¿", "µ¥¼Û", "±¸×¢")
         for i in range(6):
             name_label_company = tk.Label(self.master, text=labels[i])
-            name_label_company.grid(row=5, column=i, pady=5, sticky="we")  # é å·¦å¯¹é½
+            name_label_company.grid(row=5, column=i, pady=5, sticky="we")  # ¿¿×ó¶ÔÆë
 
-        file_path = rf"{CURRENT_FOLDER}{r"\output.txt"}"  # txtæ–‡ä»¶çš„è·¯å¾„
-        # æ·»åŠ  6x8 è¾“å…¥æ¡†
-        for i in range(8):  # 8è¡Œ
+        file_path = rf"{CURRENT_FOLDER}{r"\output.txt"}"  # txtÎÄ¼şµÄÂ·¾¶
+        # Ìí¼Ó 6x8 ÊäÈë¿ò
+        for i in range(8):  # 8ĞĞ
             row_vars = []
-            for j in range(6):  # æ¯è¡Œ6ä¸ª
+            for j in range(6):  # Ã¿ĞĞ6¸ö
                 var = tk.StringVar()
                 entry = tk.Entry(self.master, textvariable=var, width=30)
                 entry.grid(row=6 + i, column=j, padx=5, pady=5, sticky="w")
                 row_vars.append(var)
             input_vars.append(row_vars)
 
-        confirm_export = tk.Button(self.master,text="å¯¼å‡ºæ‰€æœ‰æ•°æ®")
+        confirm_export = tk.Button(self.master,text="µ¼³öËùÓĞÊı¾İ")
         confirm_export.grid(row=14, column=4, columnspan=1, pady=10, sticky="we")
 
-        file_path_docx = rf"{CURRENT_FOLDER}{r"\framework.docx"}"  # word æ¨¡æ¿æ–‡ä»¶è·¯å¾„
-        output_path = rf"{CURRENT_FOLDER}{r"\ç”Ÿæˆåé€è´§å•.docx"}"
+        file_path_docx = rf"{CURRENT_FOLDER}{r"\framework.docx"}"  # word Ä£°åÎÄ¼şÂ·¾¶
+        output_path = rf"{CURRENT_FOLDER}{r"\Éú³ÉºóËÍ»õµ¥.docx"}"
         button_generate_docx = tk.Button(
             self.master,
-            text="ç”Ÿæˆé€è´§å•",
+            text="Éú³ÉËÍ»õµ¥",
             command=lambda: tk.messagebox.askyesno(
-                "ç¡®è®¤å¯¼å…¥",
-                "ç¡®è®¤å·²ç»å¯¼å‡ºæ•°æ®ï¼Œç”Ÿæˆé€è´§å•ï¼Ÿ"
+                "È·ÈÏµ¼Èë",
+                "È·ÈÏÒÑ¾­µ¼³öÊı¾İ£¬Éú³ÉËÍ»õµ¥£¿"
             )
         )
-        button_generate_docx.grid(row=16, column=4, columnspan=1, pady=10, sticky="we")  # é è¾“å…¥æ¡†å³è¾¹
+        button_generate_docx.grid(row=16, column=4, columnspan=1, pady=10, sticky="we")  # ¿¿ÊäÈë¿òÓÒ±ß
 
         button_import_database = tk.Button(
             self.master,
-            text="å¯¼å…¥æ•°æ®åº“",
+            text="µ¼ÈëÊı¾İ¿â",
 
             command=lambda: tk.messagebox.askyesno(
-                "ç¡®è®¤å¯¼å…¥",
-                "è¯·ç¡®è®¤æ˜¯å¦å†™å…¥æ•°æ®åº“ï¼Ÿ"
+                "È·ÈÏµ¼Èë",
+                "ÇëÈ·ÈÏÊÇ·ñĞ´ÈëÊı¾İ¿â£¿"
             )
         )
-        button_import_database.grid(row=17, column=4, columnspan=1, pady=10, sticky="we")  # é è¾“å…¥
+        button_import_database.grid(row=17, column=4, columnspan=1, pady=10, sticky="we")  # ¿¿ÊäÈë

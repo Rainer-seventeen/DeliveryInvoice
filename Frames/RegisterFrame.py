@@ -1,9 +1,10 @@
+# -*- coding: gbk -*-
 import tkinter as tk
 
 class RegisterFrame(tk.Frame):
     def __init__(self, root):
         super().__init__(master=root)
 
-        # æœ¬èº«å°±æ˜¯ä¸€ä¸ªframeå¯¹è±¡ï¼Œä¸éœ€è¦åˆ›å»º
-        tk.Label(self, text="å½•å…¥äº§å“").pack()
+        # ±¾Éí¾ÍÊÇÒ»¸öframe¶ÔÏó£¬²»ĞèÒª´´½¨
+        tk.Label(self, text="Â¼Èë²úÆ·").pack()
         self.pack()

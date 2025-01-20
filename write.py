@@ -1,4 +1,5 @@
-"""å­˜æ”¾æ‰€æœ‰çš„å…³äºå†™å…¥æ–‡ä»¶çš„å‡½æ•°"""
+# -*- coding: gbk -*-
+"""´æ·ÅËùÓĞµÄ¹ØÓÚĞ´ÈëÎÄ¼şµÄº¯Êı"""
 from info import CURRENT_FOLDER
 from info import FILE_ENCODING
 import json
@@ -44,24 +45,24 @@ class Write:
         self.invoice_path = rf"{CURRENT_FOLDER}{r"\invoice.json"}"
 
     def add_new_delivery_order(self, new_order):
-        # å¦‚æœæ–‡ä»¶ä¸å­˜åœ¨ï¼Œåˆ›å»ºæ–‡ä»¶å¹¶åˆå§‹åŒ–ä¸ºä¸€ä¸ªç©ºçš„ delivery orders æ•°ç»„
+        # Èç¹ûÎÄ¼ş²»´æÔÚ£¬´´½¨ÎÄ¼ş²¢³õÊ¼»¯ÎªÒ»¸ö¿ÕµÄ delivery orders Êı×é
         if not os.path.exists(self.invoice_path):
             with open(self.invoice_path, 'w', encoding= FILE_ENCODING) as f:
                 json.dump({"DeliveryOrders": []}, f, ensure_ascii=False, indent=4)
 
-        # è¯»å–å·²æœ‰çš„ JSON æ•°æ®
+        # ¶ÁÈ¡ÒÑÓĞµÄ JSON Êı¾İ
         with open(self.invoice_path, 'r', encoding= FILE_ENCODING) as f:
             data = json.load(f)
 
-        # æ·»åŠ æ–°çš„é€è´§å•æ•°æ®
+        # Ìí¼ÓĞÂµÄËÍ»õµ¥Êı¾İ
         data['DeliveryOrders'].append(new_order)
 
-        # å†™å› JSON æ–‡ä»¶
+        # Ğ´»Ø JSON ÎÄ¼ş
         with open(self.invoice_path, 'w', encoding= FILE_ENCODING) as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
 
-        print("æ–°çš„é€è´§å•å·²æ·»åŠ æˆåŠŸï¼")
-# è°ƒç”¨å‡½æ•°ï¼Œå‘ JSON æ–‡ä»¶ä¸­æ·»åŠ æ–°çš„é€è´§å•
+        print("ĞÂµÄËÍ»õµ¥ÒÑÌí¼Ó³É¹¦£¡")
+# µ÷ÓÃº¯Êı£¬Ïò JSON ÎÄ¼şÖĞÌí¼ÓĞÂµÄËÍ»õµ¥
 
 wt = Write()
 wt.add_new_delivery_order(new_delivery_order)

@@ -1,9 +1,10 @@
+# -*- coding: gbk -*-
 import tkinter as tk
 
 class EditFrame(tk.Frame):
     def __init__(self, root):
         super().__init__(master=root)
 
-        # æœ¬èº«å°±æ˜¯ä¸€ä¸ªframeå¯¹è±¡ï¼Œä¸éœ€è¦åˆ›å»º
-        tk.Label(self, text="ä¿®æ”¹é€è´§å•").pack()
+        # ±¾Éí¾ÍÊÇÒ»¸öframe¶ÔÏó£¬²»ĞèÒª´´½¨
+        tk.Label(self, text="ĞŞ¸ÄËÍ»õµ¥").pack()
         self.pack()
