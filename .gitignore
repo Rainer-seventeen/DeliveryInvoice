@@ -1,1 +1,3 @@
 /.venv/
+/invoice.json
+/items.json
