@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="178fcd0f-39f7-4417-b6ad-af0178b6a2a7" name="Changes" comment="创建项目">
-      <change afterPath="$PROJECT_DIR$/CreatePage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/items.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/operation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/write.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frames/CreateFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/CreateFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frames/DeleteFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/DeleteFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frames/EditFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/EditFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frames/RegisterFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/RegisterFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frames/SearchFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/SearchFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package.json" />
         <option value="Python Script" />
       </list>
     </option>
@@ -24,21 +33,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Rainer-seventeen"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Rainer-seventeen&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Rainer-seventeen/Delivery.git",
-    "accountId": "f89e3d5a-d08a-4c38-808a-e4a489fbe506"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Rainer-seventeen/Delivery.git&quot;,
+    &quot;accountId&quot;: &quot;f89e3d5a-d08a-4c38-808a-e4a489fbe506&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2rpRXJb95uW6lsSI0nSIg8344uv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -51,7 +60,9 @@
   "keyToString": {
     "Python.main.executor": "Profiler",
     "Python.main.py.executor": "Run",
+    "Python.write.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "E:/Code/Delivery/main.py",
     "node.js.detected.package.eslint": "true",
@@ -105,6 +116,8 @@
       <option name="presentableId" value="Default" />
       <updated>1737254067917</updated>
       <workItem from="1737254069028" duration="5636000" />
+      <workItem from="1737283012926" duration="7000" />
+      <workItem from="1737283081530" duration="4721000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <option name="closed" value="true" />
@@ -125,6 +138,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="创建项目" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Delivery$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1737259711104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="E:\Code\Delivery" />
+    <SUITE FILE_PATH="coverage/Delivery$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1737287338336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="E:\Code\Delivery" />
+    <SUITE FILE_PATH="coverage/Delivery$write.coverage" NAME="write Coverage Results" MODIFIED="1737287730973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

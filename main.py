@@ -1,5 +1,11 @@
 import tkinter as tk
 from Frames.AboutFrame import AboutFrame
+from Frames.EditFrame import EditFrame
+from Frames.DeleteFrame import DeleteFrame
+from Frames.RegisterFrame import RegisterFrame
+from Frames.SearchFrame import SearchFrame
+from Frames.CreateFrame import CreateFrame
+
 
 class MainPage:
     def __init__(self,master):
@@ -48,19 +54,27 @@ class MainPage:
             self.about_frame.destroy()
 
     def create_invoice(self):
-        pass
+        self.destroy_last_page()
+        self.create_frame = CreateFrame(self.root)
+        self.create_frame.create_ui()
+
 
     def search_invoice(self):
-        pass
+        self.destroy_last_page()
+        self.search_frame = SearchFrame(self.root)
 
     def edit_invoice(self):
-        pass
+        """修改页面的信息"""
+        self.destroy_last_page()
+        self.edit_frame = EditFrame(self.root)
 
     def delete_invoice(self):
-        pass
+        self.destroy_last_page()
+        self.delete_frame = DeleteFrame(self.root)
 
     def register_item(self):
-        pass
+        self.destroy_last_page()
+        self.register_frame = RegisterFrame(self.root)
 
     def show_about(self):
         """关于页面的信息"""
