@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="178fcd0f-39f7-4417-b6ad-af0178b6a2a7" name="Changes" comment="创建项目">
-      <change afterPath="$PROJECT_DIR$/info.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/items.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/operation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/write.py" afterDir="false" />
+    <list default="true" id="178fcd0f-39f7-4417-b6ad-af0178b6a2a7" name="Changes" comment="完成了写入json主要函数实现">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frames/CreateFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/CreateFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frames/DeleteFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/DeleteFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frames/EditFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/EditFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frames/RegisterFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/RegisterFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frames/SearchFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/SearchFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/operation.py" beforeDir="false" afterPath="$PROJECT_DIR$/operation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/write.py" beforeDir="false" afterPath="$PROJECT_DIR$/write.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +49,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Profiler",
-    "Python.main.py.executor": "Run",
-    "Python.write.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/Code/Delivery/main.py",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.SearchFrame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.operation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.write.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Code/Delivery&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main.py" type="PythonConfigurationType" factoryName="Python">
       <module name="Delivery" />
@@ -118,6 +114,8 @@
       <workItem from="1737254069028" duration="5636000" />
       <workItem from="1737283012926" duration="7000" />
       <workItem from="1737283081530" duration="4721000" />
+      <workItem from="1737342995480" duration="5950000" />
+      <workItem from="1737537860540" duration="5913000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <option name="closed" value="true" />
@@ -127,18 +125,59 @@
       <option name="project" value="LOCAL" />
       <updated>1737254760206</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="进一步分格式">
+      <option name="closed" value="true" />
+      <created>1737343029765</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737343029765</updated>
+    </task>
+    <task id="LOCAL-00003" summary="GBK">
+      <option name="closed" value="true" />
+      <created>1737343130201</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1737343130201</updated>
+    </task>
+    <task id="LOCAL-00004" summary="完成了写入json主要函数实现">
+      <option name="closed" value="true" />
+      <created>1737348743391</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737348743391</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="创建项目" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建项目" />
+    <MESSAGE value="进一步分格式" />
+    <MESSAGE value="GBK" />
+    <MESSAGE value="完成了写入json主要函数实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了写入json主要函数实现" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Delivery$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1737287338336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="E:\Code\Delivery" />
-    <SUITE FILE_PATH="coverage/Delivery$write.coverage" NAME="write Coverage Results" MODIFIED="1737287730973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Delivery$SearchFrame.coverage" NAME="SearchFrame Coverage Results" MODIFIED="1737540828102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Frames" />
+    <SUITE FILE_PATH="coverage/Delivery$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1737545407299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="E:\Code\Delivery" />
+    <SUITE FILE_PATH="coverage/Delivery$main.coverage" NAME="main Coverage Results" MODIFIED="1737345280390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Delivery$write.coverage" NAME="write Coverage Results" MODIFIED="1737541895333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Delivery$operation.coverage" NAME="operation Coverage Results" MODIFIED="1737538737684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

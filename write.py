@@ -3,6 +3,7 @@
 import json
 import os
 
+
 from info import CURRENT_FOLDER
 from info import FILE_ENCODING
 from operation import Operation
@@ -53,15 +54,15 @@ class Write:
         print("新的送货单已添加成功！")
 
 
-
-
-company_name = "上海市A公司"
+import random
+import string
+company_name = '上海市'+random.choice(string.ascii_uppercase)+'公司'
 address_name = "浦东大道"
 company_phone = "123"
 company_connector = "联系人"
 output_data = [
     ['产品A', '无', '无', '10', '5', '无'],
-    ['', '', '', '', '', ''],
+    ['产品B', '有', '有', '3', '4', ''],
     ['', '', '', '', '', ''],
     ['', '', '', '', '', ''],
     ['', '', '', '', '', ''],
@@ -71,4 +72,5 @@ output_data = [
 ]
 
 wt = Write()
-wt.add_new_invoice(company_name, address_name, company_phone, company_connector, output_data)
+for i in range(10):
+    wt.add_new_invoice(company_name, address_name, company_phone, company_connector, output_data)

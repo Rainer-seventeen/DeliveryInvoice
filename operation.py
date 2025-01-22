@@ -7,6 +7,7 @@ import json
 from info import CURRENT_FOLDER
 from info import FILE_ENCODING
 
+
 class Operation:
     def __init__(self):
 
@@ -147,7 +148,6 @@ class Operation:
         current_time = now.strftime("%H:%M:%S")
         return current_date, current_time
 
-
     def get_next_order_no(self):
         """
         获取 DeliveryOrder 列表中 order_no 字段的最大值，并在其基础上生成下一个值。
@@ -185,4 +185,81 @@ class Operation:
             print(f"An error occurred: {e}")
             return None
 
+    def find_order_by_order_no(self, order_no):
+        """
+        根据订单号查找 JSON 文件中的订单条目。
+
+        参数:
+            order_no (str/int): 要查找的订单号。-1(int)代表所有订单
+
+        返回:
+            dict: 对应的订单字典，如果未找到，返回 None。
+        """
+        if not os.path.exists(self.invoice_path):
+            print("文件不存在！")
+            return None
+
+        try:
+            # 读取 JSON 文件内容
+            with open(self.invoice_path, 'r', encoding=FILE_ENCODING) as f:
+                data = json.load(f)
+
+            # 输入参数是-1则返回所有的订单
+            orders = data.get("DeliveryOrders", [])
+            if order_no == -1:
+                return orders
+
+            # 遍历查找匹配的订单号
+            for order in orders:
+
+                if str(order["order_no"]) == str(order_no):
+                    return order
+
+            print("未找到匹配的订单号！")
+            return None
+        except json.JSONDecodeError:
+            print("JSON 文件解析失败！")
+            return None
+        except Exception as e:
+            print(f"发生错误: {e}")
+            return None
+
+    def find_order_no_by_company_name(self, company_name):
+        """
+        根据公司名字查找 JSON 文件中的所有订单号。
+
+        参数:
+            company_name (str): 要查找的公司名字。
+
+        返回:
+            list: 包含所有匹配订单号的列表，如果未找到，返回空列表。
+        """
+        if not os.path.exists(self.invoice_path):
+            print("文件不存在！")
+            return []
+
+        try:
+            # 读取 JSON 文件内容
+            with open(self.invoice_path, 'r', encoding=FILE_ENCODING) as f:
+                data = json.load(f)
+
+            # 遍历查找匹配的公司名字
+            matching_order_nos = [
+                order["order_no"]
+                for order in data.get("DeliveryOrders", [])
+                if company_name.lower() in order["company_name"].lower()
+            ]
+
+            if not matching_order_nos:
+                print("未找到包含该公司名字的订单！")
+            return matching_order_nos
+        except json.JSONDecodeError:
+            print("JSON 文件解析失败！")
+            return []
+        except Exception as e:
+            print(f"发生错误: {e}")
+            return []
+
+# TODO 需要UI实现一个搜索功能，搜索名字，显示找到订单的“总价”，“日期”，“订单号”
+operation = Operation()
 
