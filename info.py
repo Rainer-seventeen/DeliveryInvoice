@@ -7,6 +7,9 @@ CURRENT_FOLDER = os.getcwd()
 INVOICE_DB = "invoice.json"     # 存放送货单
 ITEMS_DB = "items.json"         # 存放已有货物
 
+WINDOW_LENGTH = 1000
+WINDOW_WIDTH = 700
+
 # # 用于历史记录的一些固定定义
 # TABLE_NAME_COMPANY = "CompanyHistory"
 # TABLE_NAME_ADDRESS = "AddressHistory"

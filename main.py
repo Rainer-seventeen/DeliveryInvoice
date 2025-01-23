@@ -11,7 +11,7 @@ from Frames.CreateFrame import CreateFrame
 class MainPage:
     def __init__(self,master):
         self.root = master
-        self.root.geometry('1000x700')
+        self.root.geometry('1000x700') # WINDOW_LENGTH ,WINDOW_WIDTH
         self.root.title('处理页面')
         self.create_menu()
 
@@ -40,19 +40,12 @@ class MainPage:
 
     def destroy_last_page(self):
         """销毁上一个页面"""
-        # 销毁每个页面，如果页面已经创建并显示在界面上
-        if hasattr(self, 'create_frame') and self.create_frame.winfo_ismapped():
-            self.create_frame.destroy()
-        if hasattr(self, 'search_frame') and self.search_frame.winfo_ismapped():
-            self.search_frame.destroy()
-        if hasattr(self, 'edit_frame') and self.edit_frame.winfo_ismapped():
-            self.edit_frame.destroy()
-        if hasattr(self, 'delete_frame') and self.delete_frame.winfo_ismapped():
-            self.delete_frame.destroy()
-        if hasattr(self, 'register_frame') and self.register_frame.winfo_ismapped():
-            self.register_frame.destroy()
-        if hasattr(self, 'about_frame') and self.about_frame.winfo_ismapped():
-            self.about_frame.destroy()
+
+        self.about_frame.destroy()
+        self.edit_frame.destroy()
+        self.delete_frame.destroy()
+        self.register_frame.destroy()
+        self.search_frame.destroy()
 
     def create_invoice(self):
         self.destroy_last_page()
