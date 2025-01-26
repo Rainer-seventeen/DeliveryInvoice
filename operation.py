@@ -188,6 +188,7 @@ class Operation:
     def find_order_by_order_no(self, order_no):
         """
         根据订单号查找 JSON 文件中的订单条目。
+        如果输入-1表示返回所有的订单
 
         参数:
             order_no (str/int): 要查找的订单号。-1(int)代表所有订单
@@ -251,7 +252,7 @@ class Operation:
             ]
 
             if not matching_order_nos:
-                print("未找到包含该公司名字的订单！")
+                print(f'未找到公司名包含"{company_name}"的订单！')
             return matching_order_nos
         except json.JSONDecodeError:
             print("JSON 文件解析失败！")
@@ -260,6 +261,13 @@ class Operation:
             print(f"发生错误: {e}")
             return []
 
+    @staticmethod
+    def sort_orders_by_order_no(orders):
+        """输入orders列表，返回排序后的值"""
+        sorted_orders = sorted(orders, key=lambda x: x['order_no'])
+        return sorted_orders
 # TODO 需要UI实现一个搜索功能，搜索名字，显示找到订单的“总价”，“日期”，“订单号”
-operation = Operation()
 
+if __name__ == "__main__":
+    operation = Operation()
+    print(operation.find_order_by_order_no('A'))

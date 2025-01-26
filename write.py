@@ -53,24 +53,27 @@ class Write:
 
         print("新的送货单已添加成功！")
 
+if __name__ == '__main__':
 
-import random
-import string
-company_name = '上海市'+random.choice(string.ascii_uppercase)+'公司'
-address_name = "浦东大道"
-company_phone = "123"
-company_connector = "联系人"
-output_data = [
-    ['产品A', '无', '无', '10', '5', '无'],
-    ['产品B', '有', '有', '3', '4', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-]
+    import random
+    import string
+    address_name = "浦东大道"
+    company_phone = "123"
+    company_connector = "联系人"
+    cities = ['上海','重庆','南京','北京','杭州']
+    wt = Write()
+    for i in range(100):
+        city = random.choice(cities)
+        company_name = city + random.choice(string.ascii_uppercase)+'公司'
 
-wt = Write()
-for i in range(10):
-    wt.add_new_invoice(company_name, address_name, company_phone, company_connector, output_data)
+        output_data = [
+            ['产品A', '无', '无', '10', '5', '无'],
+            ['产品B', '有', '有', '3', '4', ''],
+            ['', '', '', '', '', ''],
+            ['', '', '', '', '', ''],
+            ['', '', '', '', '', ''],
+            ['', '', '', '', '', ''],
+            ['', '', '', '', '', ''],
+            ['', '', '', '', '', ''],
+        ]
+        wt.add_new_invoice(company_name, address_name, company_phone, company_connector, output_data)
