@@ -189,12 +189,9 @@ class Operation:
         """
         根据订单号查找 JSON 文件中的订单条目。
         如果输入-1表示返回所有的订单
+        :param order_no:要查找的订单号。-1(int)代表所有订单
+        :return: 对应的订单字典，如果未找到，返回 None。
 
-        参数:
-            order_no (str/int): 要查找的订单号。-1(int)代表所有订单
-
-        返回:
-            dict: 对应的订单字典，如果未找到，返回 None。
         """
         if not os.path.exists(self.invoice_path):
             print("文件不存在！")

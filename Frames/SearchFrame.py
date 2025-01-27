@@ -3,8 +3,9 @@
 # 显示所有的订单信息
 import tkinter as tk
 from tkinter import ttk
-from unittest import skipIf
+from tkinter import messagebox
 
+import info
 from operation import Operation
 from info import WINDOW_WIDTH
 from info import WINDOW_LENGTH
@@ -21,13 +22,12 @@ class SearchFrame(tk.Frame):
         self.orders = op.find_order_by_order_no(-1)
         self.orders = op.sort_orders_by_order_no(self.orders)
 
-        # TODO 创建一个输入框，完成input_frame对于treeview1显示的数值的控制
-
+        ###########################################################################
         # 创建一个输入框框架
         input_frame = tk.Frame(self)
         input_frame.pack(fill=tk.X, padx=10, pady=10)  # 设置上下和左右的间距
         for i in range(0,10):
-            input_frame.columnconfigure(i, weight=1)  # 第一列权重
+            input_frame.columnconfigure(i, weight=1)  # 权重
 
 
         # 输入框提示
@@ -45,10 +45,6 @@ class SearchFrame(tk.Frame):
             command=lambda: self.on_search_click(entry_str=input_entry.get())
             )
         button_company.grid(row=0, column=4, pady=5, sticky="w")
-
-
-
-
 
         ###########################################################################
         # 第一个框架来包含第一个treeview和滚动条
@@ -78,7 +74,7 @@ class SearchFrame(tk.Frame):
         ###########################################################################
         # 创建第二个框架来包含第二个treeview和滚动条
         self.frame2 = tk.Frame(self)
-        self.frame2.pack(fill=tk.BOTH, expand=True,  pady=20)
+        self.frame2.pack(fill=tk.BOTH, expand=True,  pady=5)
         # 第二个表格基本布局
 
         columns2 = ("product_name", "product_standard", "product_unit", "quantity","unit_price", "total_price", "product_description")
@@ -90,8 +86,6 @@ class SearchFrame(tk.Frame):
         self.tree_view2.column('unit_price', width=int(0.1 * WINDOW_LENGTH), anchor='center')
         self.tree_view2.column('total_price', width=int(0.1 * WINDOW_LENGTH), anchor='center')
         self.tree_view2.column('product_description', width=int(0.1 * WINDOW_LENGTH), anchor='center')
-
-
         self.tree_view2.heading('product_name', text='产品名称')
         self.tree_view2.heading('product_standard', text='产品标准')
         self.tree_view2.heading('product_unit', text='单位')
@@ -107,7 +101,20 @@ class SearchFrame(tk.Frame):
         # 鼠标点击事件
         self.tree_view1.bind("<ButtonRelease-1>", self.on_item_click)
 
+        ###########################################################################
+        # 第三个框架用于创建系列操作按钮
+        button_frame = tk.Frame(self)
+        button_frame.pack(fill=tk.BOTH, expand=True, pady=0)  # 设置上下间距为10
 
+        for i in range(0,10):
+            button_frame.columnconfigure(i, weight=1)  # 权重
+
+        button_company = tk.Button(
+            button_frame,
+            text="创建订货单",
+            command=self.on_create_click
+            )
+        button_company.grid(row=1, column=0, pady=5, sticky="w")
 
 
     def show_orders(self, orders=None):
@@ -119,7 +126,7 @@ class SearchFrame(tk.Frame):
         if orders is None:
             orders = self.orders
         for order in orders:
-            print(order) # DEBUG
+            # print(order) # DEBUG
             self.tree_view1.insert('', index = 'end', values=(
                 order['order_no'], order['company_name'], order['created_date'], order['all_total_price']))
 
@@ -150,22 +157,37 @@ class SearchFrame(tk.Frame):
 
     def on_item_click(self, event = None):
         """
-        鼠标点击触发的事件，涉及到重新显示表格数据
+        鼠标点击触发的事件，重新显示表格数据
+        如果没有选中：赋值 self.item_is_selected = False
         :param event:
-        :return:
+        :return:如果没有选中，返回 None
         """
         # 获取被点击的项的ID
-        selected_item = self.tree_view1.selection()
-        if selected_item is None:
-            pass
-        # 获取该项的详细数据
-        item_id = selected_item[0]
-        item_values = self.tree_view1.item(item_id, 'values')
-        order_no = item_values[0]  # 'Order No' 是第一列
-        print(order_no)
-        self.show_products(order_no)
 
-    def on_search_click(self, entry_str, event = None):
+        selected_item = self.tree_view1.selection()
+
+        if selected_item is None: # 未选中
+            for item in self.tree_view2.get_children():
+                self.tree_view2.delete(item)
+            self.tree_view2.insert("", "end", values=("选中订单以显示详情",))
+            return None
+
+        # 获取该项的详细数据
+        item_id = selected_item[0] # treeview内部id，格式：I001
+        # print(item_id) # DEBUG
+        item_values = self.tree_view1.item(item_id, 'values')
+
+        selected_item_id = item_values[0]  # 'Order No' 是第一列
+        # print(order_no) # DEBUG
+
+        if selected_item_id == '未找到结果': # 选中了“未找到”
+            for item in self.tree_view2.get_children():
+                self.tree_view2.delete(item)
+            self.tree_view2.insert("", "end", values=("选中订单以显示详情",))
+            return None
+        self.show_products(selected_item_id)
+
+    def on_search_click(self, entry_str):
         """
         设置搜索按钮的回调函数，重新显示treeview1
         :param entry_str: 输入的字符串
@@ -176,7 +198,7 @@ class SearchFrame(tk.Frame):
         self.tree_view1.delete(*self.tree_view1.get_children())
         op = Operation()
         orders_no = op.find_order_no_by_company_name(entry_str)    #找到订单号
-        # print(orders_no)
+        # print(orders_no) # DEBUG
         orders_to_show = []
         if len(entry_str) == 0:
             # 如果没输入就全部显示
@@ -193,6 +215,37 @@ class SearchFrame(tk.Frame):
         self.show_orders(orders_to_show)
 
         # print(orders_to_show)
+
+    def on_create_click(self):
+        """
+        创建送货单按钮回调函数，根据当前选中的订单启动后续生成等功能
+        :param
+        :return:
+        """
+        self.treeview1_click()
+
+    def treeview1_click(self):
+        """
+        被一系列按钮调用，用于返回当前treeview1选中的那个订单号
+        :return:选中的订单号，如果没有则是 None
+        """
+        op = Operation()
+        selected_item = self.tree_view1.selection()
+        selected_order_no = 0
+        if len(selected_item) == 0 :
+            # 没有选中任何一个条目
+            messagebox.showwarning('警告', '未选中订单，请选中订单后重试！')
+            return None
+        else:
+            selected_order_id = selected_item[0] # 内部id
+            selected_order_no = self.tree_view1.item(selected_order_id, 'values')[0]
+        if op.find_order_by_order_no(selected_order_no) is None:
+            # 没有选中正确的订单名称
+            messagebox.showwarning('警告','未选中订单，请选中订单后重试！')
+            return None
+        else:
+            print(selected_order_no)
+            return selected_order_no
 
 
 if __name__ == '__main__':
