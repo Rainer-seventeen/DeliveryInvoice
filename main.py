@@ -46,11 +46,11 @@ class MainPage:
         self.delete_frame.destroy()
         self.register_frame.destroy()
         self.search_frame.destroy()
+        self.create_frame.destroy()
 
     def create_invoice(self):
         self.destroy_last_page()
         self.create_frame = CreateFrame(self.root)
-        self.create_frame.create_ui()
 
 
     def search_invoice(self):
