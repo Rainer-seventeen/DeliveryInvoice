@@ -37,22 +37,22 @@ class CreateFrame(tk.Frame):
         for i in range(0,5):
             self.input_frame.columnconfigure(i, weight=1)  # 权重
 
-        self.entry_company = tk.Entry(self.input_frame, width=60)
+        self.entry_company = ttk.Entry(self.input_frame, width=60)
         self.entry_company.grid(row=1, column=1, columnspan=2, pady=5, sticky="w")  # 靠左扩展
         name_label_company = tk.Label(self.input_frame, text="公司名称:")
         name_label_company.grid(row=1, column=0, pady=5, sticky="we")  # 靠左对齐
 
-        self.entry_address = tk.Entry(self.input_frame, width=60)
+        self.entry_address = ttk.Entry(self.input_frame, width=60)
         self.entry_address.grid(row=2, column=1, columnspan=2, pady=5, sticky="w")
         name_label_address = tk.Label(self.input_frame,text='地址名称:')
         name_label_address.grid(row=2, column=0, pady=5, sticky="we")
 
-        self.entry_phone = tk.Entry(self.input_frame, width=60)
+        self.entry_phone = ttk.Entry(self.input_frame, width=60)
         self.entry_phone.grid(row=3, column=1, columnspan=2, pady=5, sticky="w")  # 靠左扩展
         name_label_phone = tk.Label(self.input_frame, text="客户电话:")
         name_label_phone.grid(row=3, column=0, pady=5, sticky="we")  # 靠左对齐
 
-        self.entry_connector = tk.Entry(self.input_frame, width=60)
+        self.entry_connector = ttk.Entry(self.input_frame, width=60)
         self.entry_connector.grid(row=4, column=1, columnspan=2, pady=5, sticky="w")  # 靠左扩展
         name_label_connector = tk.Label(self.input_frame, text="联系人:")
         name_label_connector.grid(row=4, column=0, pady=5, sticky="we")  # 靠左对齐
@@ -117,8 +117,8 @@ class CreateFrame(tk.Frame):
         for i in range(0,10):
             button_frame.columnconfigure(i, weight=1)  # 权重
 
-        save_button = tk.Button(button_frame,text='保存',command=lambda :self.on_save_click())
-        save_button.grid(row=0, column=2, pady=5, sticky="w")
+        save_button = ttk.Button(self.input_frame,text='保存数据',command=lambda :self.on_save_click())
+        save_button.grid(row=1, column=3, pady=5, sticky="ew")
 
     def on_table_click(self, event):
         # 如果当前有正在编辑的单元格，先保存内容
