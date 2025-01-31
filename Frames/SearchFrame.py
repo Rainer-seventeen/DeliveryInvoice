@@ -8,6 +8,7 @@ from tkinter import messagebox
 
 # import info
 from operation import Operation
+from write import Write
 # from info import WINDOW_WIDTH
 from info import WINDOW_LENGTH
 
@@ -36,16 +37,16 @@ class SearchFrame(tk.Frame):
         company_label.grid(row=0, column=0, pady=5, sticky="w")  # 靠左对齐
 
         # 添加一个输入框，设置列权重
-        input_entry = tk.Entry(input_frame, width=60)
+        input_entry = ttk.Entry(input_frame, width=60)
         input_entry.grid(row=0, column=1, columnspan=3, pady=5, sticky="w")  # 靠左扩展
 
         #创建搜索按钮，在输入框的右侧
-        button_company = tk.Button(
+        button_company = ttk.Button(
             input_frame,
             text="搜索",
             command=lambda: self.on_search_click(entry_str=input_entry.get())
             )
-        button_company.grid(row=0, column=4, pady=5, sticky="w")
+        button_company.grid(row=0, column=3, pady=5, sticky="e")
 
         ###########################################################################
         # 第一个框架来包含第一个treeview和滚动条
@@ -131,12 +132,12 @@ class SearchFrame(tk.Frame):
         for i in range(0,10):
             button_frame.columnconfigure(i, weight=1)  # 权重
 
-        button_company = tk.Button(
+        button_company = ttk.Button(
             button_frame,
             text="创建订货单",
             command=self.on_create_click
             )
-        button_company.grid(row=1, column=0, pady=5, sticky="w")
+        button_company.grid(row=0, column=8, pady=5, sticky="ew")
 
 
     def show_orders(self, orders=None):
@@ -269,7 +270,15 @@ class SearchFrame(tk.Frame):
         :param
         :return:
         """
-        self.treeview1_click()
+        selected_item = self.treeview1_click()
+        if selected_item is None:
+            return
+        if not messagebox.askyesno('确认','确认生成送货单文件？'):
+            return
+        op = Operation()
+        wt = Write()
+        out = op.find_order_by_order_no(selected_item)
+        wt.write_docx(out)
 
     def treeview1_click(self):
         """

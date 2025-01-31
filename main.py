@@ -25,15 +25,17 @@ class MainPage:
         self.register_frame = tk.Frame(self.root)
         self.about_frame = tk.Frame(self.root)
 
+        self.search_invoice()
+
     def create_menu(self):
         """创建菜单"""
 
         #菜单
         menubar = tk.Menu(self.root)
-        menubar.add_command(label='新建',command=self.create_invoice)
         menubar.add_command(label='查询',command=self.search_invoice)
+        menubar.add_command(label='创建',command=self.create_invoice)
         menubar.add_command(label='修改',command=self.edit_invoice)
-        menubar.add_command(label='删除',command=self.delete_invoice)
+        # menubar.add_command(label='删除',command=self.delete_invoice)
         menubar.add_command(label='录入',command=self.register_item)
         menubar.add_command(label='关于',command=self.show_about)
 
@@ -64,9 +66,9 @@ class MainPage:
         self.destroy_last_page()
         self.edit_frame = EditFrame(self.root)
 
-    def delete_invoice(self):
-        self.destroy_last_page()
-        self.delete_frame = DeleteFrame(self.root)
+    # def delete_invoice(self):
+    #     self.destroy_last_page()
+    #     self.delete_frame = DeleteFrame(self.root)
 
     def register_item(self):
         self.destroy_last_page()
