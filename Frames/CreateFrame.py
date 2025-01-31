@@ -5,7 +5,7 @@ from tkinter import ttk
 from tkinter import messagebox
 # from venv import create
 
-from operation import Operation
+# from operation import Operation
 from write import Write
 # from info import CURRENT_FOLDER
 # from info import WINDOW_WIDTH
@@ -61,7 +61,7 @@ class CreateFrame(tk.Frame):
         ###########################################################################
         # 创建表格区域
         self.table_frame = ttk.Frame(self)
-        self.table_frame.grid(row=1, column=0, sticky="ew")  # 取消垂直扩展
+        self.table_frame.grid(row=1, column=0, sticky="ew", padx = 10)  # 取消垂直扩展
 
         # 配置表格区域的网格权重
         self.table_frame.rowconfigure(0, weight=1)  # 表格行权重为1
@@ -201,18 +201,23 @@ class CreateFrame(tk.Frame):
         if connector.strip() == "":
             messagebox.showwarning('警告', '联系人未填写')
             return False
+
+        is_empty = True
         for row in range(0,len(matrix)-1):
-            is_empty = True
             if matrix[row][0].strip() != "":
                 is_empty = False
                 if not matrix[row][3].strip().isdigit():
                     messagebox.showwarning('警告', f"第{row + 1}行产品数量不正确")
+                    return False
                 if not matrix[row][4].strip().replace('.', '', 1).isdigit():
                     messagebox.showwarning('警告', f"第{row + 1}行产品单价不正确")
+                    return False
                 print('Check Entry: PASS') # DEBUG
                 return True
 
-        messagebox.showwarning('警告', "至少添加一项产品")
+        if is_empty:
+            messagebox.showwarning('警告', "至少添加一项产品")
+            return False
         return False
 
     def matrix_from_data(self):
