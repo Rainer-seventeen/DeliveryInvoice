@@ -1,5 +1,5 @@
 # -*- coding: gbk -*-
-"""用于创建所有的数据操作函数"""
+"""所有的数据操作函数"""
 
 import os
 import json
@@ -72,7 +72,7 @@ class Operation:
                 "total_price": round(product.get("quantity", 0) * product.get("unit_price", 0.0), 2)
             }
             new_order["Products"].append(product_entry)
-
+        print('Create New Order: PASS') # DEBUG
         return new_order
 
     @staticmethod
@@ -116,7 +116,7 @@ class Operation:
                 "total_price": total_price
             }
             products_list.append(product_entry)
-
+        print('Created products list: PASS') # DEBUG
         return products_list
 
     @staticmethod
@@ -263,7 +263,6 @@ class Operation:
         """输入orders列表，返回排序后的值"""
         sorted_orders = sorted(orders, key=lambda x: x['order_no'])
         return sorted_orders
-# TODO 需要UI实现一个搜索功能，搜索名字，显示找到订单的“总价”，“日期”，“订单号”
 
 if __name__ == "__main__":
     operation = Operation()
