@@ -5,9 +5,9 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 
-import info
+# import info
 from operation import Operation
-from info import WINDOW_WIDTH
+# from info import WINDOW_WIDTH
 from info import WINDOW_LENGTH
 
 
@@ -191,7 +191,6 @@ class SearchFrame(tk.Frame):
         """
         设置搜索按钮的回调函数，重新显示treeview1
         :param entry_str: 输入的字符串
-        :param event: 无
         :return:
         """
 
@@ -223,6 +222,7 @@ class SearchFrame(tk.Frame):
         :return:
         """
         self.treeview1_click()
+        # TODO 待完成
 
     def treeview1_click(self):
         """
@@ -231,7 +231,7 @@ class SearchFrame(tk.Frame):
         """
         op = Operation()
         selected_item = self.tree_view1.selection()
-        selected_order_no = 0
+        # selected_order_no = 0
         if len(selected_item) == 0 :
             # 没有选中任何一个条目
             messagebox.showwarning('警告', '未选中订单，请选中订单后重试！')
