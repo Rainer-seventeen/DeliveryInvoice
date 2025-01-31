@@ -2,6 +2,7 @@
 
 # 显示所有的订单信息
 import tkinter as tk
+from operator import index
 from tkinter import ttk
 from tkinter import messagebox
 
@@ -14,7 +15,7 @@ from info import WINDOW_LENGTH
 class SearchFrame(tk.Frame):
     def __init__(self, root):
         super().__init__(master=root)
-        self.pack()
+        self.pack(expand=True, fill=tk.BOTH)
 
 
 
@@ -49,7 +50,7 @@ class SearchFrame(tk.Frame):
         ###########################################################################
         # 第一个框架来包含第一个treeview和滚动条
         self.frame1 = tk.Frame(self)
-        self.frame1.pack(fill=tk.BOTH, expand=True, pady=10)  # 设置上下间距为10
+        self.frame1.pack(fill=tk.BOTH, expand=True, padx = 10, pady=10)  # 设置上下间距为10
         # 第一个表格基本布局
         columns1 = ("order_no", "company_name", "created_date", "all_total_price")
         self.tree_view1 = ttk.Treeview(self.frame1, columns=columns1, show="headings")
@@ -74,8 +75,29 @@ class SearchFrame(tk.Frame):
         ###########################################################################
         # 创建第二个框架来包含第二个treeview和滚动条
         self.frame2 = tk.Frame(self)
-        self.frame2.pack(fill=tk.BOTH, expand=True,  pady=5)
+        self.frame2.pack(fill=tk.BOTH, expand=True, pady=5, padx = 10)
         # 第二个表格基本布局
+
+        self.created_date_and_time = ''
+        self.company_address = ''
+        self.company_connector_and_phone = ''
+
+
+        self.frame2.rowconfigure(0, weight=1)
+        self.frame2.rowconfigure(1, weight=1)
+        self.frame2.rowconfigure(2, weight=1)
+        self.frame2.rowconfigure(3, weight=1)
+        self.frame2.rowconfigure(4, weight=1)
+        self.frame2.columnconfigure(0, weight=1)
+
+        self.choose_label = tk.Label(self.frame2,text='选择订单以显示详情')
+        self.choose_label.grid(row=0, column=0, pady=5, sticky="w")
+        self.created_date_and_time_label = tk.Label()
+        self.company_name_label = tk.Label()
+        self.company_address_label = tk.Label()
+        self.company_connector_and_phone_label = tk.Label()
+
+
 
         columns2 = ("product_name", "product_standard", "product_unit", "quantity","unit_price", "total_price", "product_description")
         self.tree_view2 = ttk.Treeview(self.frame2, columns=columns2, show="headings")
@@ -95,7 +117,7 @@ class SearchFrame(tk.Frame):
         self.tree_view2.heading('product_description', text='备注')
 
         #表格2布局
-        self.tree_view2.pack(side="left", fill=tk.BOTH, expand=True)
+        self.tree_view2.grid(row=4, column=0, pady=10, sticky="we", padx=(5,15))
 
         self.show_orders()
         # 鼠标点击事件
@@ -132,18 +154,41 @@ class SearchFrame(tk.Frame):
 
     def show_products(self, order_no = None):
         """
-        展示第二个列表treeview2内容，order_no是订单号
+        展示第二个列表treeview2内容，以及treeview2上方内容，order_no是订单号
         :param order_no:
         :return:
         """
         if order_no is None:
             pass
 
-        # 先清空所有的已经显示的条目
+        # 清空表格中所有的已经显示的条目
         for item in self.tree_view2.get_children():
             self.tree_view2.delete(item)
         op = Operation()
         clicked_order = op.find_order_by_order_no(order_no) #当前被点击的条目
+
+        # 清空中间栏显示
+        self.choose_label.grid_forget()
+        self.created_date_and_time_label.grid_forget()
+        self.company_name_label.grid_forget()
+        self.company_address_label.grid_forget()
+        self.company_connector_and_phone_label.grid_forget()
+        # 定义显示内容
+        created_date_and_time = clicked_order['created_date']+' '+clicked_order['created_time']
+        company_name = clicked_order['company_name']
+        company_address = clicked_order['company_address']
+        company_connector_and_phone = clicked_order['company_connector']+' '+clicked_order['company_phone']
+
+        # 当前条目显示
+        self.created_date_and_time_label = tk.Label(self.frame2,text="创建日期及时间："+created_date_and_time)
+        self.company_name_label = tk.Label(self.frame2,text='公司名称：'+company_name)
+        self.company_address_label = tk.Label(self.frame2,text='公司地址： '+company_address)
+        self.company_connector_and_phone_label = tk.Label(self.frame2,text='联系人及电话：'+company_connector_and_phone)
+        self.created_date_and_time_label.grid(row=0, column=0, pady=0, sticky="w")
+        self.company_name_label.grid(row=1, column=0, pady=0, sticky="w")
+        self.company_address_label.grid(row=2, column=0, pady=0, sticky="w")
+        self.company_connector_and_phone_label.grid(row=3, column=0, pady=0, sticky="w")
+
         products = clicked_order['Products'] # 当前送货单的产品
         for product in products:
             # print(product) # DEBUG
@@ -157,7 +202,7 @@ class SearchFrame(tk.Frame):
 
     def on_item_click(self, event = None):
         """
-        鼠标点击触发的事件，重新显示表格数据
+        鼠标点击第一个表格触发的事件，重新显示表格数据
         如果没有选中：赋值 self.item_is_selected = False
         :param event:
         :return:如果没有选中，返回 None
@@ -173,7 +218,10 @@ class SearchFrame(tk.Frame):
             return None
 
         # 获取该项的详细数据
-        item_id = selected_item[0] # treeview内部id，格式：I001
+        try:
+            item_id = selected_item[0] # treeview内部id，格式：I001
+        except IndexError:
+            return None
         # print(item_id) # DEBUG
         item_values = self.tree_view1.item(item_id, 'values')
 
