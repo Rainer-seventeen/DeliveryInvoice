@@ -1,5 +1,7 @@
 # -*- coding: gbk -*-
 import tkinter as tk
+
+import info
 from Frames.AboutFrame import AboutFrame
 from Frames.EditFrame import EditFrame
 from Frames.DeleteFrame import DeleteFrame
@@ -11,7 +13,7 @@ from Frames.CreateFrame import CreateFrame
 class MainPage:
     def __init__(self,master):
         self.root = master
-        self.root.geometry('1000x700') # WINDOW_LENGTH ,WINDOW_WIDTH
+        self.root.geometry(f'{info.WINDOW_LENGTH}x{info.WINDOW_WIDTH}') # WINDOW_LENGTH ,WINDOW_WIDTH
         self.root.title('处理页面')
         self.create_menu()
 
