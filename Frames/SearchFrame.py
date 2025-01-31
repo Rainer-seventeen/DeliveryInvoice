@@ -222,7 +222,6 @@ class SearchFrame(tk.Frame):
         :return:
         """
         self.treeview1_click()
-        # TODO ´ıÍê³É
 
     def treeview1_click(self):
         """

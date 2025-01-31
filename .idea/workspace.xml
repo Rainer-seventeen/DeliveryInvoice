@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="178fcd0f-39f7-4417-b6ad-af0178b6a2a7" name="Changes" comment="完成了查找页面中搜索功能的设计">
+    <list default="true" id="178fcd0f-39f7-4417-b6ad-af0178b6a2a7" name="Changes" comment="浮点数转中文大写">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frames/CreateFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/CreateFrame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frames/SearchFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frames/SearchFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/operation.py" beforeDir="false" afterPath="$PROJECT_DIR$/operation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/titled_price.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChineseUppercase.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +55,9 @@
   "keyToString": {
     "Python.SearchFrame.executor": "Run",
     "Python.main.executor": "Run",
-    "Python.main.py.executor": "Debug",
+    "Python.main.py.executor": "Run",
     "Python.operation.executor": "Run",
+    "Python.test.executor": "Run",
     "Python.write.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -67,6 +72,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Code\Delivery" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main.py" type="PythonConfigurationType" factoryName="Python">
       <module name="Delivery" />
@@ -117,7 +127,9 @@
       <workItem from="1737545522560" duration="50000" />
       <workItem from="1737623264474" duration="9344000" />
       <workItem from="1737897205403" duration="6900000" />
-      <workItem from="1737970845399" duration="6137000" />
+      <workItem from="1737970845399" duration="9241000" />
+      <workItem from="1738244461185" duration="48000" />
+      <workItem from="1738293990207" duration="14169000" />
     </task>
     <task id="LOCAL-00001" summary="创建项目">
       <option name="closed" value="true" />
@@ -175,7 +187,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737904111954</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="查找页面选择逻辑完善">
+      <option name="closed" value="true" />
+      <created>1737982743589</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1737982743589</updated>
+    </task>
+    <task id="LOCAL-00009" summary="浮点数转中文大写">
+      <option name="closed" value="true" />
+      <created>1737982766819</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1737982766819</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,27 +228,35 @@
     <MESSAGE value="完成了表格的布局，第一个表格的内容显示" />
     <MESSAGE value="完成了第二个表格的设计" />
     <MESSAGE value="完成了查找页面中搜索功能的设计" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成了查找页面中搜索功能的设计" />
+    <MESSAGE value="查找页面选择逻辑完善" />
+    <MESSAGE value="浮点数转中文大写" />
+    <option name="LAST_COMMIT_MESSAGE" value="浮点数转中文大写" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/operation.py</url>
-          <line>218</line>
+          <line>215</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Frames/SearchFrame.py</url>
-          <line>186</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>56</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="self.data" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Delivery$SearchFrame.coverage" NAME="SearchFrame Coverage Results" MODIFIED="1737900074242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Frames" />
-    <SUITE FILE_PATH="coverage/Delivery$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1737979080899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="E:\Code\Delivery" />
+    <SUITE FILE_PATH="coverage/Delivery$test.coverage" NAME="test Coverage Results" MODIFIED="1738294644910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Delivery$main_py.coverage" NAME="main.py Coverage Results" MODIFIED="1738310708496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="E:\Code\Delivery" />
     <SUITE FILE_PATH="coverage/Delivery$main.coverage" NAME="main Coverage Results" MODIFIED="1737345280390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Delivery$write.coverage" NAME="write Coverage Results" MODIFIED="1737903991813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Delivery$operation.coverage" NAME="operation Coverage Results" MODIFIED="1737902722954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
